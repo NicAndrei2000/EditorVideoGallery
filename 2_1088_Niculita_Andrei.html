@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="2_1088_Niculita_Andrei.css" />
+
+    <script
+      src="https://kit.fontawesome.com/0377f50e66.js"
+      crossorigin="anonymous"
+    ></script>
+    
+  </head>
+
+  <body>
+    <h3 class="heading">Movies trailer</h3>
+    <div class="container">
+      <div class="main-video">
+        <div class="containerVideoBar show-controls">
+          <div class="wrapper">
+            <div class="video-timeline">
+              <div class="progress-area">
+                <div class="progress-bar"></div>
+              </div>
+            </div>
+            <ul class="video-controls">
+              <li class="options left">
+                <button class="volume" style="margin-right: 10px">
+                  <i class="fa-solid fa-volume-high"></i>
+                </button>
+                <input type="range" min="0" max="1" step="any" />
+                <div class="video-timer">
+                  <p class="current-time">00:00</p>
+                  <p class="separator">/</p>
+                  <p class="video-duration">00:00</p>
+                </div>
+              </li>
+              <li class="options center">
+                <button class="skip-backward">
+                  <i class="fas fa-backward"></i>
+                </button>
+                <button class="play-pause"><i class="fas fa-play"></i></button>
+                <button class="skip-forward">
+                  <i class="fas fa-forward"></i>
+                </button>
+              </li>
+              <li class="options right">
+                <div class="subtitles">
+                  <button class="subtitlesbtn" onclick="displaySubtitles()">
+                    <i
+                      class="fa-regular fa-closed-captioning"
+                      style="padding-right: 10px" 
+                    ></i>
+                  </button>
+                </div>
+                <div class="playback-content">
+                  <button class="playback-speed">
+                    <span class="material-symbols-rounded">
+                      <i
+                        class="fa-sharp fa-solid fa-circle-play"
+                        style="padding-right: 10px"
+                      ></i>
+                    </span>
+                  </button>
+                  <ul class="speed-options">
+                    <li data-speed="2">2x</li>
+                    <li data-speed="1.5">1.5x</li>
+                    <li data-speed="1" class="active">Normal</li>
+                    <li data-speed="0.75">0.75x</li>
+                    <li data-speed="0.5">0.5x</li>
+                  </ul>
+                </div>
+                <button class="pic-in-pic">
+                  <span class="material-icons">picture_in_picture_alt</span>
+                </button>
+                <button class="fullscreen">
+                  <i class="fa-solid fa-expand" style="padding-left: 10px"></i>
+                </button>
+              </li>
+            </ul>
+          </div>
+          <div class="video">
+            <video id="mainVideo" src="media/avatar-trailer.mp4">
+              <track
+                kind="subtitles"
+                srclang="en"
+                label="English"
+                src="/media/AvatarSubtitles.vtt"
+                mode="enable"
+                default
+              />
+            </video>
+          </div>
+          <canvas id="canvas"></canvas>
+        </div>
+        <h3 class="title">01. video title goes here</h3>
+
+        <div class="btn-toolbar" role="toolbar">
+          <div class="btn-group me-2" role="group" >
+            <button class="buttonStyle" type="button" id="btnNormal">Normal</button>
+            <button class="buttonStyle" type="button" id="btnGrayscale">Grayscale</button>
+            <button class="buttonStyle" type="button" id="btnRedscale">Redscale</button>
+            <button class="buttonStyle" type="button" id="btnRotation">Rotation</button>
+            <button class="buttonStyle" type="button" id="btnEmboss">Emboss</button>
+          </div>
+        </div>
+      </div>
+      <div class="video-list">
+          <button class="buttonStyle" type="button" id="btnPlayPause" style="float: right; margin-top: 5px;" ;>Sort by name</button>
+        <div id="videoList"></div>
+      </div>
+
+      
+      <div class="card">
+        <div class="top"  >
+          <p>Drag and drop video uploading</p>
+          <button type="button" id="btnupload">Upload</button>
+        </div>
+        <form action="/upload" method="post" class="dragover" ondrop="dropHandler(event)" ondragover="dragOverHandler(event)" >
+          <span class="inner" 
+            >Drag and drop video here
+            </span
+          >
+          <input name="file" type="file" class="file" multiple />
+        </form>
+        <div class="container2"></div>
+      </div>
+    </div>
+
+    
+    <script src="2_1088_Niculita_Andrei.js"></script>
+  </body>
+</html>
